@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.iesalandalus.programacion'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jackson: lectura y escritura de ficheros JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    // Soporte de LocalDate (java.time) en Jackson
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2'
+
+    // Clase Entrada del profesor (lectura por teclado)
+    implementation files('libs/entrada-1.0.3.jar')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    // Mockito (los tests del profesor usan mock())
+    testImplementation 'org.mockito:mockito-core:5.12.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass = 'org.iesalandalus.programacion.tallermecanico.Main'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(JavaExec).configureEach {
+    standardInput = System.in
+    systemProperty 'file.encoding', 'UTF-8'
+    systemProperty 'stdout.encoding', 'UTF-8'
+    systemProperty 'stderr.encoding', 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
