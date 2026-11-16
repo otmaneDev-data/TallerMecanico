@@ -1,10 +1,5 @@
-# Taller Mecánico – Persistencia con ficheros JSON (AD01)
 
-## Cómo abrirlo en IntelliJ
-1. Descomprime el ZIP y abre la carpeta `TallerMecanico` (donde está `build.gradle`) con `File > Open`.
-2. Espera a que Gradle importe el proyecto (JDK 17 o superior).
-3. Ejecuta `Main`. Parámetro opcional: `-fdficherosjson` (es la fuente de datos por defecto).
-4. Pruebas: `./gradlew test`.
+# Taller Mecánico – Persistencia con ficheros JSON (AD01)
 
 ## Estructura (paquete base `org.iesalandalus.programacion.tallermecanico`)
 - `modelo/dominio`: Cliente, Vehiculo (record), Trabajo (abstracta), Revision, Mecanico, TipoTrabajo.
